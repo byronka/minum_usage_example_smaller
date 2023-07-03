@@ -1,6 +1,6 @@
 package example2;
 
-import minum.web.FullSystem;
+import minum.FullSystem;
 import minum.web.StartLine;
 
 import minum.web.Response;
