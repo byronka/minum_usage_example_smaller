@@ -7,24 +7,11 @@ Check out the [code](src/main/example2/Main.java).
 Here it is:
 
 ```java
-import minum.web.FullSystem;
-import minum.web.StartLine;
-
-import minum.web.Response;
-import minum.web.WebFramework;
-
-public class Main {
-
-    public static void main(String[] args) {
-        try (WebFramework wf = FullSystem.initialize()) {
-            // register a handler
-            wf.registerPath(
-                    StartLine.Verb.GET,
-                    "",
-                    request -> Response.htmlOk("<p>Hi there world!</p>"));
-        }
-    }
-}
+  // Register some endpoints
+  fs.getWebFramework().registerPath(
+          StartLine.Verb.GET,
+          "",
+          request -> Response.htmlOk("<p>Hi there world!</p>"));
 ```
 
 Quick start:
