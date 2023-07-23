@@ -1,4 +1,4 @@
-package example2;
+package com.renomad;
 
 import minum.Constants;
 import minum.FullSystem;

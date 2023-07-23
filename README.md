@@ -2,7 +2,7 @@ Minum example - small
 ====================
 
 This is a small project meant to demonstrate use of the [Minum framework](https://github.com/byronka/minum).
-Check out the [code](src/main/example2/Main.java). 
+Check out the [code](src/main/java/com/renomad/Main.java). 
 
 Here it is:
 
@@ -17,21 +17,17 @@ Here it is:
 Quick start:
 ------------
 
-* To run: `make run` and then visit http://localhost:8080
-* For help: `make help`
+
+* To build and test: `mvn install`
+* To build without testing: `mvn clean compile assembly:single`
+* To run after build: `java --enable-preview -jar target/minum_usage_example_smallest-1.0.0-jar-with-dependencies.jar`
+  and then visit http://localhost:8080
 
 System requirements: 
 --------------------
 
-[JDK version 20](https://jdk.java.net/20/) is _required_.
-
-Developed in two environments:
-* MacBook Pro with OS 12.0.1, with OpenJDK 20, GNU Make 3.81 and Rsync 2.6.9
-* Windows 10 64-bit professional, on [Cygwin](https://www.cygwin.com/), OpenJDK 20, Gnu Make 4.4 and Rsync 3.2.7
-
-Note that the build tool, _Gnu Make_, is already installed on Mac.  On Windows you can install
-it through the Cygwin installer.  See [here](https://www.cygwin.com/packages/summary/make.html)
-
+- [JDK version 20](https://jdk.java.net/20/) is _required_, for the new virtual threads it provides.
+- Maven
 
 Step-by-step guide for installing Java on Windows:
 --------------------------------------------------
