@@ -17,6 +17,9 @@ Here it is:
 Quick start:
 ------------
 
+(_Note that Minum is not yet published to the central Maven
+repo. Thus, it is necessary to first run the following command in 
+the [minum framework](https://github.com/byronka/minum): `make mvnrepo`. _)
 
 * To build and test: `mvn package`
 * To build without testing: `mvn clean compile assembly:single`
