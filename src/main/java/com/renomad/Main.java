@@ -1,8 +1,8 @@
 package com.renomad;
 
 import minum.Constants;
-import minum.FullSystem;
 import minum.logging.Logger;
+import minum.web.FullSystem;
 import minum.web.StartLine;
 
 import minum.web.Response;
@@ -28,10 +28,6 @@ public class Main {
                 "",
                 request -> Response.htmlOk("<p>Hi there world!</p>"));
 
-        // These are here to block, as a backstop, since we are dealing with a
-        // multithreaded system.  Without these, the program would
-        // simply pass right on and exit.
-        fs.getServer().centralLoopFuture.get();
-        fs.getSslServer().centralLoopFuture.get();
+        fs.block();
     }
 }
