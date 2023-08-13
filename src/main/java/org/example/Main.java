@@ -1,4 +1,4 @@
-package com.renomad;
+package org.example;
 
 import minum.Constants;
 import minum.logging.Logger;

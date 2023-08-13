@@ -2,7 +2,7 @@ Minum example - small
 ====================
 
 This is a small project meant to demonstrate use of the [Minum framework](https://github.com/byronka/minum).
-Check out the [code](src/main/java/com/renomad/Main.java). 
+Check out the [code](src/main/java/org/example/Main.java). 
 
 Here it is:
 

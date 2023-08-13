@@ -81,7 +81,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>com.renomad.Main</mainClass>
+              <mainClass>org.example.Main</mainClass>
             </manifest>
           </archive>
           <descriptorRefs>
