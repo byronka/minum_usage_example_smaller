@@ -4,7 +4,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>renomad</groupId>
+  <groupId>com.renomad</groupId>
   <artifactId>minum_usage_example_smallest</artifactId>
   <version>1.0.0</version>
 
@@ -18,7 +18,7 @@
 
   <dependencies>
     <dependency>
-      <groupId>renomad</groupId>
+      <groupId>com.renomad</groupId>
       <artifactId>minum</artifactId>
       <version>1.0.0</version>
       <scope>compile</scope>
