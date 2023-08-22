@@ -35,4 +35,4 @@ To build and run:
 
 then visit http://localhost:8080
 
-See the [Minum quick start](https://github.com/byronka/minum/docs/quick_start.md) for a comprehensive (but still speedy) step-by-step.
+See the [Minum quick start](https://github.com/byronka/minum/blob/master/docs/quick_start.md) for a comprehensive (but still speedy) step-by-step.
