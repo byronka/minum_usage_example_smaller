@@ -1,8 +1,8 @@
 package org.example;
 
-import static minum.testing.TestFramework.assertTrue;
+import static com.renomad.minum.testing.TestFramework.assertTrue;
 
-import minum.web.FullSystem;
+import com.renomad.minum.web.FullSystem;
 
 
 public class AppTest

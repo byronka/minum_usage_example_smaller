@@ -1,13 +1,13 @@
 package org.example;
 
-import minum.Constants;
-import minum.Context;
-import minum.logging.Logger;
-import minum.web.FullSystem;
-import minum.web.StartLine;
+import com.renomad.minum.Constants;
+import com.renomad.minum.Context;
+import com.renomad.minum.logging.Logger;
+import com.renomad.minum.web.FullSystem;
+import com.renomad.minum.web.StartLine;
 
-import minum.web.Response;
-import minum.web.WebFramework;
+import com.renomad.minum.web.Response;
+import com.renomad.minum.web.WebFramework;
 
 public class Main {
 
