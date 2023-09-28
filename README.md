@@ -15,7 +15,7 @@ public class Main {
 
       // Register some endpoints
       fs.getWebFramework().registerPath(
-              StartLine.Verb.GET,
+              RequestLine.Method.GET,
               "",
               request -> Response.htmlOk("<p>Hi there world!</p>"));
 

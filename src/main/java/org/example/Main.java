@@ -4,8 +4,8 @@ import com.renomad.minum.Constants;
 import com.renomad.minum.Context;
 import com.renomad.minum.logging.Logger;
 import com.renomad.minum.web.FullSystem;
-import com.renomad.minum.web.StartLine;
 
+import com.renomad.minum.web.RequestLine;
 import com.renomad.minum.web.Response;
 import com.renomad.minum.web.WebFramework;
 
@@ -17,7 +17,7 @@ public class Main {
 
         // Register some endpoints
         fs.getWebFramework().registerPath(
-                StartLine.Verb.GET,
+                RequestLine.Method.GET,
                 "",
                 request -> Response.htmlOk("<p>Hi there world!</p>"));
 
