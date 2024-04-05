@@ -1,26 +1,15 @@
 package org.example;
 
-import com.renomad.minum.Constants;
-import com.renomad.minum.Context;
-import com.renomad.minum.logging.Logger;
 import com.renomad.minum.web.FullSystem;
-
-import com.renomad.minum.web.RequestLine;
 import com.renomad.minum.web.Response;
-import com.renomad.minum.web.WebFramework;
+
+import static com.renomad.minum.web.RequestLine.Method.GET;
 
 public class Main {
 
     public static void main(String[] args) {
-        // Start the system
         FullSystem fs = FullSystem.initialize();
-
-        // Register some endpoints
-        fs.getWebFramework().registerPath(
-                RequestLine.Method.GET,
-                "",
-                request -> Response.htmlOk("<p>Hi there world!</p>"));
-
+        fs.getWebFramework().registerPath(GET, "", request -> Response.htmlOk("<p>Hi there world!</p>"));
         fs.block();
     }
 }
