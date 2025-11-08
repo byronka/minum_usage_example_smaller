@@ -95,6 +95,19 @@ public class AppTest
     }
 
     /**
+     * If the user tries sending a value for name that could end up
+     * getting run as JavaScript, convert it to a safe value that cannot.
+     */
+    @Test
+    public void testHelloEndpoint_EdgeCase_XSSName() {
+        // execute an HTTP GET request for the "hello" endpoint
+        FunctionalTesting.TestResponse testResponse = ft.get("hello?name=<script>alert('danger_XSS')</script>");
+
+        assertEquals(testResponse.statusLine().status(), CODE_200_OK);
+        assertEquals(testResponse.body().asString(), "<p>Hi there %3Cscript%3Ealert%28%27danger_XSS%27%29%3C%2Fscript%3E!</p>");
+    }
+
+    /**
      * Confirm we get what is expected for the index.html page, the
      * page presented to the user when they hit http://localhost:8080/index.html
      */
