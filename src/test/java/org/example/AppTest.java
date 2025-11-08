@@ -82,7 +82,7 @@ public class AppTest
     }
 
     /**
-     * Similar to {@link #testHelloEndpoint_Default()} but he we
+     * Similar to {@link #testHelloEndpoint_Default()} but here we
      * specify the name in the query string
      */
     @Test
