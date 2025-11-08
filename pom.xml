@@ -7,6 +7,7 @@
 
   <name>minum_usage_example_smallest</name>
 
+  <!-- Minum requires Java 21 for its virtual threads -->
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>21</maven.compiler.source>
@@ -15,6 +16,10 @@
 
   <dependencies>
 
+    <!--
+    This is the Minum web framework, find its
+    code at https://github.com/byronka/minum
+    -->
     <dependency>
       <groupId>com.renomad</groupId>
       <artifactId>minum</artifactId>
@@ -22,7 +27,11 @@
       <scope>compile</scope>
     </dependency>
 
-    <!-- https://mvnrepository.com/artifact/junit/junit -->
+    <!--
+    Junit is an industry-standard test framework.
+    Version 4 is oriented to minimalism, which aligns
+    with the ethos of Minum.  Its site is https://junit.org/junit4/
+    -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -35,12 +44,19 @@
   <build>
     <plugins>
       <plugin>
+
+        <!--
+        This plugin is required so we can run `mvn exec:java` on the command line
+        to run the program
+        -->
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>exec-maven-plugin</artifactId>
         <version>3.1.0</version>
         <configuration>
+          <!-- Adjust this value if you change the name of the class where the main method is -->
           <mainClass>org.example.Main</mainClass>
         </configuration>
+
       </plugin>
     </plugins>
   </build>
