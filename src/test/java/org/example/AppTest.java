@@ -15,37 +15,37 @@ import static com.renomad.minum.web.StatusLine.StatusCode.CODE_200_OK;
 public class AppTest
 {
 
-    private Context context;
-    private TestLogger logger;
-    private FullSystem fullSystem;
-    private Constants constants;
-    private FunctionalTesting ft;
+    private static Context context;
+    private static TestLogger logger;
+    private static FullSystem fullSystem;
+    private static Constants constants;
+    private static FunctionalTesting ft;
 
     /**
      * Initialize a full system startup for each test
      */
-    @Before
-    public void init() {
-        this.context = buildTestingContext("AppTest");
-        this.constants = this.context.getConstants();
-        this.logger = (TestLogger) context.getLogger();
+    @BeforeClass
+    public static void init() {
+        context = buildTestingContext("AppTest");
+        constants = context.getConstants();
+        logger = (TestLogger) context.getLogger();
 
-        this.fullSystem = new FullSystem(context);
-        this.fullSystem.start();
+        fullSystem = new FullSystem(context);
+        fullSystem.start();
 
-        Main.registerEndpoints(this.fullSystem.getWebFramework());
+        Main.registerEndpoints(fullSystem.getWebFramework());
 
-        this.ft = new FunctionalTesting(context, this.constants.hostName, this.constants.serverPort);
+        ft = new FunctionalTesting(context, constants.hostName, constants.serverPort);
     }
 
     /**
      * Cleanly shut down the system after each test
      */
-    @After
-    public void cleanup() {
-        this.fullSystem.shutdown();
-        this.context.getLogger().stop();
-        this.context.getExecutorService().shutdownNow();
+    @AfterClass
+    public static void cleanup() {
+        fullSystem.shutdown();
+        context.getLogger().stop();
+        context.getExecutorService().shutdownNow();
     }
 
     /**
