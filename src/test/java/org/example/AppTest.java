@@ -33,7 +33,7 @@ public class AppTest
         this.fullSystem = new FullSystem(context);
         this.fullSystem.start();
 
-        Main.registerEndpoints(this.fullSystem);
+        Main.registerEndpoints(this.fullSystem.getWebFramework());
 
         this.ft = new FunctionalTesting(context, this.constants.hostName, this.constants.serverPort);
     }

@@ -3,6 +3,7 @@ package org.example;
 import com.renomad.minum.utils.StringUtils;
 import com.renomad.minum.web.FullSystem;
 import com.renomad.minum.web.Response;
+import com.renomad.minum.web.WebFramework;
 
 import static com.renomad.minum.web.RequestLine.Method.GET;
 
@@ -13,7 +14,7 @@ public class Main {
         FullSystem fs = FullSystem.initialize();
 
         // Register the endpoints
-        registerEndpoints(fs);
+        registerEndpoints(fs.getWebFramework());
 
         fs.block();
     }
@@ -23,10 +24,10 @@ public class Main {
      * application will serve.  By splitting it out to its own
      * method, the testing becomes much easier.  See AppTest.java
      */
-    public static void registerEndpoints(FullSystem fs) {
-        fs.getWebFramework().registerPath(GET, "", request -> Response.redirectTo("/index.html"));
+    public static void registerEndpoints(WebFramework webFramework) {
+        webFramework.registerPath(GET, "", request -> Response.redirectTo("/index.html"));
 
-        fs.getWebFramework().registerPath(GET, "hello", request -> {
+        webFramework.registerPath(GET, "hello", request -> {
             String name = request.getRequestLine().queryString().get("name");
             if (name == null || name.isBlank()) {
                 return Response.htmlOk("<p>Hi there world!</p>");
