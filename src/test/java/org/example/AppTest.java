@@ -8,6 +8,8 @@ import com.renomad.minum.web.FunctionalTesting;
 import com.renomad.minum.web.StatusLine;
 import org.junit.*;
 
+import java.io.IOException;
+
 import static com.renomad.minum.testing.TestFramework.*;
 import static com.renomad.minum.web.StatusLine.StatusCode.CODE_200_OK;
 
@@ -42,7 +44,7 @@ public class AppTest
      * Cleanly shut down the system after each test
      */
     @AfterClass
-    public static void cleanup() {
+    public static void cleanup() throws IOException {
         fullSystem.shutdown();
         context.getLogger().stop();
         context.getExecutorService().shutdownNow();
