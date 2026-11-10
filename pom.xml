@@ -1,69 +1,81 @@
 <project>
-  <modelVersion>4.0.0</modelVersion>
+    <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.renomad</groupId>
-  <artifactId>minum_usage_example_smallest</artifactId>
-  <version>1.0.0</version>
+    <groupId>com.renomad</groupId>
+    <artifactId>minum_usage_example_smallest</artifactId>
+    <version>1.0.0</version>
 
-  <name>minum_usage_example_smallest</name>
-
-  <!-- 
-    Minum requires a minimum of Java 21 
-    for its virtual threads. 
-  -->
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>21</maven.compiler.source>
-    <maven.compiler.target>21</maven.compiler.target>
-  </properties>
-
-  <dependencies>
+    <name>minum_usage_example_smallest</name>
 
     <!--
-      This is the Minum web framework, find its
-      code at https://github.com/byronka/minum
+      Minum requires a minimum of Java 21
+      for its virtual threads.
     -->
-    <dependency>
-      <groupId>com.renomad</groupId>
-      <artifactId>minum</artifactId>
-      <version>11.0.4</version>
-      <scope>compile</scope>
-    </dependency>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+    </properties>
 
-    <!--
-    Junit is an industry-standard test framework.
-    Version 4 is oriented to minimalism, which aligns
-    with the ethos of Minum.  Its site is https://junit.org/junit4/
-    -->
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.13.2</version>
-      <scope>test</scope>
-    </dependency>
+    <dependencies>
 
-  </dependencies>
-
-  <build>
-    <plugins>
-      <plugin>
         <!--
-          This plugin is required so we can 
-          run `mvn exec:java` on the command line
-          to run the program
+          This is the Minum web framework, find its
+          code at https://github.com/byronka/minum
         -->
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>exec-maven-plugin</artifactId>
-        <version>3.1.0</version>
-        <configuration>
-          <!-- 
-            Adjust this value if you change the name of 
-            the class where the main method is 
-          -->
-          <mainClass>org.example.Main</mainClass>
-        </configuration>
+        <dependency>
+            <groupId>com.renomad</groupId>
+            <artifactId>minum</artifactId>
+            <version>11.0.4</version>
+            <scope>compile</scope>
+        </dependency>
 
-      </plugin>
-    </plugins>
-  </build>
+        <!--
+        Junit is an industry-standard test framework.
+        Version 4 is oriented to minimalism, which aligns
+        with the ethos of Minum.  Its site is https://junit.org/junit4/
+        -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.7.1</version>
+                <configuration>
+                    <descriptorRefs>
+                        <!-- Bundles all dependencies inside the JAR -->
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <archive>
+                        <manifest>
+                            <!-- Defines the entry point of your application -->
+                            <mainClass>org.example.Main</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <!-- Binds this plugin to the 'package' phase -->
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+
 </project>
